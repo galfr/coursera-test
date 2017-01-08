@@ -4,7 +4,7 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
 .directive('foundItems', foundItemsDirective);
 
 function foundItemsDirective() {
@@ -13,10 +13,7 @@ function foundItemsDirective() {
     scope: {
       items: '<',
       onRemove: '&'
-    },
-    // controller: ShoppingListDirectiveController,
-    // controllerAs: 'list',
-    // bindToController: true
+    }
   };
 
   return ddo;
@@ -35,7 +32,6 @@ function NarrowItDownController(MenuSearchService) {
   // call service http request function, simply update the list of matched items
   // in the controller on return
   ctrl.narrowDown = function() {
-    ctrl.buttonClicked = true;
 
     // if the user supplied an empty string, update matchedItems to an empty array,
     // otherwise, retrieve items from server and update
@@ -45,6 +41,7 @@ function NarrowItDownController(MenuSearchService) {
 
       promise.then(function (response) {
         ctrl.matchedItems = response;
+        ctrl.buttonClicked = true;
       })
       .catch(function (error) {
         console.log("Something went terribly wrong.");
@@ -52,6 +49,7 @@ function NarrowItDownController(MenuSearchService) {
     }
     else {
       ctrl.matchedItems = [];
+      ctrl.buttonClicked = true;
     }
 
   };
