@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" ng-app='MenuApp'>
+  <head>
+    <title>Restaurant Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body>
+
+  <ui-view></ui-view>
+
+  <!-- libs -->
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-ui-router.min.js"></script>
+
+  <!-- modules -->
+  <script src="src/data/data.module.js"></script>
+  <script src="src/menuapp/menuapp.module.js"></script>
+
+  <!-- routes -->
+  <script src="src/routes.js"/></script>
+
+  <!-- 'MenuApp' module artifacts -->
+  <script src="src/categories/categories.component.js"/></script>
+  <script src="src/categories/categories.controller.js"/></script>
+
+  <!-- 'data' module artifcats -->
+  <script src="src/data/menudata.service.js"></script>
+
+</body>
+</html>
